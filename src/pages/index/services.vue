@@ -539,7 +539,7 @@ useSeo({
 
 .services-ai__columns {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: auto repeat(9, auto);
   border-top: 1px solid var(--sz-line-strong);
 }
