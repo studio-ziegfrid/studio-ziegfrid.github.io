@@ -10,8 +10,9 @@
             <em class="sz-italic">you're building.</em>
           </h1>
           <p class="sz-lead contact-hero__lead">
-            A new website, a redesign, a booking flow that should work better, or something you have
-            not quite named yet. Start with the useful details — we will take it from there.
+            A new website or mobile app, a redesign, a booking flow that should work better, or
+            something you have not quite named yet. Start with the useful details — we will take it
+            from there.
           </p>
           <p class="contact-hero__note">
             <span class="sz-status-dot" aria-hidden="true"></span>
@@ -95,7 +96,7 @@
                 v-model="form.website"
                 outlined
                 class="sz-field"
-                label="Current website (optional)"
+                label="Current site or app (optional)"
                 type="url"
                 autocomplete="url"
               />
@@ -135,7 +136,7 @@
               label="What are you building?"
               type="textarea"
               rows="4"
-              hint="The business, the website, and what it needs to do."
+              hint="The business, the site or app, and what it needs to do."
               :rules="[required]"
             />
 
@@ -146,7 +147,7 @@
               label="What is not working right now? (optional)"
               type="textarea"
               rows="3"
-              hint="The current site, a manual process, a bottleneck — anything useful."
+              hint="The current site or app, a manual process, a bottleneck — anything useful."
             />
 
             <q-input
@@ -228,7 +229,7 @@
               <p class="contact-include__label">A useful brief includes</p>
               <ul>
                 <li>The business and who it serves</li>
-                <li>What the website needs to do</li>
+                <li>What the site or app needs to do</li>
                 <li>A range and a rough timeline</li>
               </ul>
             </div>
@@ -308,6 +309,8 @@ const form = reactive<BriefForm>({
 
 const projectTypes = [
   'A new website',
+  'A mobile app',
+  'AI integration',
   'A redesign',
   'A custom build or web app',
   'Booking or e-commerce',

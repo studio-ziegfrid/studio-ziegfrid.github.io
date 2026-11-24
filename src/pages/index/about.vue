@@ -14,8 +14,9 @@
             designer and front-end developer working from the Philippines with businesses anywhere.
           </p>
           <p class="about-hero__body">
-            We make websites for resorts, rentals, shops, and services that have outgrown the
-            template aisle. The work is personal, direct, and built to be owned — not rented.
+            We make websites and mobile apps for resorts, rentals, shops, and services that have
+            outgrown the template aisle. The work is personal, direct, and built to be owned — not
+            rented.
           </p>
           <div class="about-hero__actions">
             <AppButton to="/contact" label="Start a project" arrow />
@@ -95,7 +96,7 @@
             mystery plugins waiting to break.
           </p>
           <blockquote class="about-story__quote">
-            “A website is not a logo on a theme. It is how your business behaves online.”
+            “A site or app is not a logo on a theme. It is how your business behaves online.”
           </blockquote>
           <div class="about-story__facts">
             <div>
@@ -104,7 +105,7 @@
             </div>
             <div>
               <span>Build</span>
-              <strong>Vue, Quasar, TypeScript, CMS</strong>
+              <strong>Vue, Quasar, React, React Native</strong>
             </div>
             <div>
               <span>Care</span>
@@ -155,8 +156,8 @@
             <em class="sz-italic">Cared for there.</em>
           </h2>
           <p class="sz-lead about-elsewhere__lead">
-            When a launched site needs ongoing updates, fixes, backups, or a reliable pair of hands,
-            it is handled through SiteMedic — the maintenance arm of the studio.
+            When a launched site or app needs ongoing updates, fixes, backups, or a reliable pair of
+            hands, it is handled through SiteMedic — the maintenance arm of the studio.
           </p>
           <p class="about-elsewhere__note">
             You can also find the studio's wider work, code, and professional history below.
@@ -202,7 +203,7 @@ const principles = [
   {
     number: '01',
     title: 'The business comes first',
-    copy: 'We start with how you make money, serve customers, and run the day. The website follows the business — not the other way around.',
+    copy: 'We start with how you make money, serve customers, and run the day. The build follows the business — not the other way around.',
   },
   {
     number: '02',
@@ -212,7 +213,7 @@ const principles = [
   {
     number: '03',
     title: 'Build it to be maintained',
-    copy: 'Clean components, readable code, and a content model you can live with. A website should not become a mystery after launch.',
+    copy: 'Clean components, readable code, and a content model you can live with. A site or app should not become a mystery after launch.',
   },
   {
     number: '04',
@@ -242,7 +243,7 @@ const elsewhere = [
 useSeo({
   title: 'About — Studio Ziegfrid',
   description:
-    'Studio Ziegfrid is the independent design and build practice of Ziegfrid Gualberto, making bespoke websites for businesses that do not fit a template.',
+    'Studio Ziegfrid is the independent design and build practice of Ziegfrid Gualberto, making bespoke websites and mobile apps for businesses that do not fit a template.',
   path: '/about',
   jsonLd: [
     professionalServiceJsonLd(),

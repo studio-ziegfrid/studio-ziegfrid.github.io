@@ -26,11 +26,11 @@
         </h2>
         <p class="sz-lead">
           Studio Ziegfrid is the independent practice of Ziegfrid Gualberto. We keep the team small
-          on purpose: the person who designs your website is the person who builds it.
+          on purpose: the person who designs your site or app is the person who builds it.
         </p>
         <p class="about-teaser__body">
-          That means fewer handoffs, fewer misunderstandings, and a site that is actually finished
-          the way it was designed. When a project needs ongoing care, it is handled through
+          That means fewer handoffs, fewer misunderstandings, and a product that is actually
+          finished the way it was designed. When a project needs ongoing care, it is handled through
           SiteMedic, our maintenance arm.
         </p>
 
@@ -41,7 +41,7 @@
           </div>
           <div>
             <span>Build</span>
-            <strong>Vue, Quasar, TypeScript, CMS</strong>
+            <strong>Vue, Quasar, React, React Native</strong>
           </div>
           <div>
             <span>Care</span>

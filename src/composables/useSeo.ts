@@ -87,11 +87,15 @@ export function professionalServiceJsonLd() {
     serviceType: [
       'Custom website design',
       'Web development',
+      'Mobile app development',
+      'React Native apps',
+      'App Store & Play Store deployment',
+      'AI integration',
       'UX design',
       'Booking interfaces',
       'E-commerce development',
       'CMS integration',
-      'Website maintenance',
+      'Website & app maintenance',
     ],
   };
 }

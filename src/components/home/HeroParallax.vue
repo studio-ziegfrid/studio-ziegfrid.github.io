@@ -19,12 +19,12 @@
 
             <h1 class="hero__title">
               Your business doesn't fit a template.<br />
-              <em class="sz-italic">Neither should your website.</em>
+              <em class="sz-italic">Neither should your product.</em>
             </h1>
 
             <p class="hero__lead">
-              We design and code bespoke websites for resorts, rentals, shops, and services — around
-              your brand, your customers, and the way you actually work.
+              We design and code bespoke websites and mobile apps for resorts, rentals, shops, and
+              services — around your brand, your customers, and the way you actually work.
             </p>
 
             <div class="hero__actions">

@@ -30,7 +30,7 @@ import { useSeo, faqJsonLd, professionalServiceJsonLd, websiteJsonLd } from '@/c
 useSeo({
   title: 'Studio Ziegfrid — Bespoke Websites for Business',
   description:
-    'Independent design and build studio making bespoke websites for resorts, car rentals, laundry services, grocery stores, and businesses that do not fit a template.',
+    'Independent design and build studio making bespoke websites and mobile apps for resorts, car rentals, laundry services, grocery stores, and businesses that do not fit a template.',
   path: '/',
   jsonLd: [websiteJsonLd(), professionalServiceJsonLd(), faqJsonLd(faqs)],
 });

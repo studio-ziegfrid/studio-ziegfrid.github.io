@@ -5,7 +5,7 @@ export const SITE = {
   shortName: 'Studio Ziegfrid',
   url: SITE_URL,
   description:
-    'Bespoke websites designed and built from scratch for resorts, car rentals, laundry shops, grocery stores, and businesses that do not fit a template.',
+    'Bespoke websites and mobile apps designed and built from scratch for resorts, car rentals, laundry shops, grocery stores, and businesses that do not fit a template.',
   email: 'ziegfrid.gualberto@gmail.com',
   phoneDisplay: '+63 917 652 3658',
   phoneE164: '639176523658',

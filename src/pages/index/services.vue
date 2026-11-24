@@ -10,9 +10,9 @@
             <em class="sz-italic">your business.</em>
           </h1>
           <p class="sz-lead services-hero__lead">
-            Strategy, design, and front-end engineering for businesses that have outgrown the
-            template aisle. We shape the website around how you actually work — then build it
-            properly.
+            Strategy, design, and engineering for web and mobile, for businesses that have outgrown
+            the template aisle. We shape the site or app around how you actually work — then build
+            it properly.
           </p>
           <div class="services-hero__actions">
             <AppButton to="/contact" label="Start a project" arrow />
@@ -27,7 +27,7 @@
         <RevealOnScroll class="services-index" :delay="100">
           <div class="services-index__top">
             <span>Capability index</span>
-            <span>08 areas</span>
+            <span>{{ String(services.length).padStart(2, '0') }} areas</span>
           </div>
           <div class="services-index__list">
             <div
@@ -93,11 +93,74 @@
       </div>
     </section>
 
+    <section class="sz-section sz-section--paper-deep services-ai">
+      <div class="sz-container services-ai__grid">
+        <RevealOnScroll class="services-ai__head">
+          <div>
+            <SectionLabel number="03" label="AI, deliberately" />
+            <h2 class="sz-h2">
+              AI that stays<br />
+              <em class="sz-italic">inside the lines.</em>
+            </h2>
+          </div>
+          <p class="sz-lead">
+            AI can take real work off your team — answering repetitive questions, making sense of
+            messy data, keeping routine jobs moving. In a website or an app, we decide exactly where
+            it is used and what it is allowed to touch — and we tell you both before we start.
+          </p>
+        </RevealOnScroll>
+
+        <div class="services-ai__columns">
+          <RevealOnScroll class="services-ai__column services-ai__column--uses">
+            <div class="services-ai__column-top">
+              <span class="services-ai__column-label">Where it earns its place</span>
+              <span class="services-ai__column-count">{{ aiUseCases.length }} uses</span>
+            </div>
+            <ul class="services-ai__list">
+              <li v-for="(useCase, index) in aiUseCases" :key="useCase.title">
+                <span class="services-ai__number">{{ String(index + 1).padStart(2, '0') }}</span>
+                <div>
+                  <strong>{{ useCase.title }}</strong>
+                  <span class="services-ai__desc">{{ useCase.description }}</span>
+                </div>
+              </li>
+            </ul>
+          </RevealOnScroll>
+
+          <RevealOnScroll class="services-ai__column services-ai__column--guardrails" :delay="90">
+            <div class="services-ai__column-top">
+              <span class="services-ai__column-label">How we keep it contained</span>
+              <span class="services-ai__column-count">{{ aiSafeguards.length }} rules</span>
+            </div>
+            <ul class="services-ai__list services-ai__list--guardrails">
+              <li v-for="safeguard in aiSafeguards" :key="safeguard.title">
+                <span class="services-ai__check" aria-hidden="true">✓</span>
+                <div>
+                  <strong>{{ safeguard.title }}</strong>
+                  <span class="services-ai__desc">{{ safeguard.description }}</span>
+                </div>
+              </li>
+            </ul>
+          </RevealOnScroll>
+        </div>
+
+        <RevealOnScroll class="services-ai__foot">
+          <p>
+            <span aria-hidden="true">✳</span>
+            Already running an AI provider in another app? Tell us which one and we can reuse it —
+            you give us the provider, we handle the integration. If privacy is the concern, we will
+            run it on your own infrastructure instead.
+          </p>
+          <AppButton to="/contact" label="Talk through your AI work" variant="ghost" arrow />
+        </RevealOnScroll>
+      </div>
+    </section>
+
     <section class="sz-section sz-section--dark services-engagements">
       <div class="sz-container">
         <RevealOnScroll class="services-engagements__head">
           <div>
-            <SectionLabel number="03" label="Engagements" light />
+            <SectionLabel number="04" label="Engagements" light />
             <h2 class="sz-h2">Four ways to<br /><em class="sz-italic">work together.</em></h2>
           </div>
           <p class="sz-lead">
@@ -140,10 +203,10 @@
     <section class="sz-section services-scope">
       <div class="sz-container services-scope__grid">
         <RevealOnScroll class="services-scope__intro">
-          <SectionLabel number="04" label="Scoping" />
+          <SectionLabel number="05" label="Scoping" />
           <h2 class="sz-h2">The right size,<br /><em class="sz-italic">not the biggest.</em></h2>
           <p class="sz-lead">
-            A website should be an investment, not an obligation. We scope around the outcome you
+            A good build should be an investment, not an obligation. We scope around the outcome you
             need now, then plan the rest for when it makes sense.
           </p>
           <AppButton to="/contact" label="Talk about your budget" variant="ghost" arrow />
@@ -169,7 +232,7 @@
     <section class="sz-section sz-section--warm services-addons">
       <div class="sz-container services-addons__grid">
         <RevealOnScroll>
-          <SectionLabel number="05" label="Add-ons" />
+          <SectionLabel number="06" label="Add-ons" />
           <h2 class="sz-h2">Plug in<br /><em class="sz-italic">when it earns it.</em></h2>
           <p class="sz-lead services-addons__lead">
             These are not packages. They are capabilities we bring in when the business needs them,
@@ -202,14 +265,21 @@ import AppButton from '@/components/ui/AppButton.vue';
 import RevealOnScroll from '@/components/ui/RevealOnScroll.vue';
 import SectionLabel from '@/components/ui/SectionLabel.vue';
 import CTASection from '@/components/home/CTASection.vue';
-import { addOns, engagements, scopingPrinciples, services } from '@/data/services';
+import {
+  addOns,
+  aiSafeguards,
+  aiUseCases,
+  engagements,
+  scopingPrinciples,
+  services,
+} from '@/data/services';
 import { SITE } from '@/data/site';
 import { breadcrumbJsonLd, professionalServiceJsonLd, useSeo } from '@/composables/useSeo';
 
 useSeo({
   title: 'Services — Studio Ziegfrid',
   description:
-    'Custom UI/UX design, front-end engineering, CMS, booking flows, e-commerce, integrations, performance, and care for businesses that do not fit a template.',
+    'Custom UI/UX design, web and mobile engineering, iOS and Android apps, CMS, booking flows, e-commerce, integrations, scoped AI integration, performance, and care for businesses that do not fit a template.',
   path: '/services',
   jsonLd: [
     professionalServiceJsonLd(),
@@ -451,6 +521,139 @@ useSeo({
   text-transform: uppercase;
 }
 
+.services-ai__grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.services-ai__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+}
+
+.services-ai__head h2 {
+  max-width: 14ch;
+}
+
+.services-ai__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: auto repeat(9, auto);
+  border-top: 1px solid var(--sz-line-strong);
+}
+
+.services-ai__column {
+  display: grid;
+  grid-row: 1 / -1;
+  grid-template-rows: subgrid;
+  background: var(--sz-paper);
+}
+
+.services-ai__column--uses {
+  border-right: 1px solid var(--sz-line);
+}
+
+.services-ai__column-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--sz-line);
+  color: var(--sz-ink-faint);
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.services-ai__column-count {
+  font-family: var(--sz-font-mono);
+  color: var(--sz-accent-strong);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.services-ai__list {
+  display: grid;
+  grid-row: 2 / -1;
+  grid-template-rows: subgrid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services-ai__list li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--sz-line);
+  transition: background var(--sz-dur-fast) var(--sz-ease);
+}
+
+.services-ai__list--guardrails li {
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+}
+
+.services-ai__list li:hover {
+  background: var(--sz-paper-warm);
+}
+
+.services-ai__number {
+  color: var(--sz-accent-strong);
+  font-family: var(--sz-font-mono);
+  font-size: 0.58rem;
+}
+
+.services-ai__check {
+  color: var(--sz-accent-strong);
+  font-size: 0.85rem;
+}
+
+.services-ai__list strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--sz-ink);
+  font-family: var(--sz-font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.services-ai__desc {
+  max-width: 52ch;
+  color: var(--sz-ink-soft);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.services-ai__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--sz-line-strong);
+}
+
+.services-ai__foot p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--sz-ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.services-ai__foot p span {
+  margin-right: 0.35rem;
+  color: var(--sz-accent-strong);
+}
+
 .services-engagements__head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
@@ -667,11 +870,35 @@ useSeo({
 @media (max-width: 1023px) {
   .services-hero__grid,
   .services-list__head,
+  .services-ai__head,
+  .services-ai__columns,
   .services-engagements__head,
   .services-scope__grid,
   .services-addons__grid {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
+  }
+
+  .services-ai__columns {
+    grid-template-rows: none;
+  }
+
+  .services-ai__column {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .services-ai__column--uses {
+    border-right: 0;
+    border-bottom: 1px solid var(--sz-line);
+  }
+
+  .services-ai__list {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
   }
 
   .services-scope__intro {

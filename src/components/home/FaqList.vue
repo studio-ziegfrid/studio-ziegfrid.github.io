@@ -26,7 +26,19 @@
           expanded-icon="remove"
           class="faq__item"
         >
-          <div class="faq__answer">{{ faq.answer }}</div>
+          <div class="faq__answer">
+            {{ faq.answer }}
+            <a
+              v-if="faq.link"
+              :href="faq.link.href"
+              :target="faq.link.external ? '_blank' : undefined"
+              :rel="faq.link.external ? 'noopener noreferrer' : undefined"
+              class="faq__answer-link"
+            >
+              {{ faq.link.label }}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </q-expansion-item>
       </RevealOnScroll>
     </div>
@@ -80,6 +92,21 @@ import { faqs } from '@/data/faqs';
   color: var(--sz-ink-soft);
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+.faq__answer-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-left: 0.3rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--sz-accent-strong);
+  font-weight: 600;
+  transition: color var(--sz-dur-fast) var(--sz-ease);
+}
+
+.faq__answer-link:hover {
+  color: var(--sz-ink);
 }
 
 .faq__item :deep(.q-item__label) {
