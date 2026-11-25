@@ -246,6 +246,6 @@ export const addOns = [
   'Blog & editorial',
   'Custom dashboards',
   'API integrations',
-  'AI Integrations',
-  'Mobile apss and store launch'
+  'AI integrations',
+  'Mobile apps & store launch',
 ];
